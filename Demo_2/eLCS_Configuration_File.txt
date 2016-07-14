@@ -1,0 +1,33 @@
+###### Configuration File (eLCS)
+
+######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+###### Major Run Parameters - Essential to be set correctly for a successful run of the algorithm
+######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+trainFile=Demo_Datasets\6Multiplexer_Data_Complete.txt		# Path/FileName of training dataset
+testFile=None									# Path/FileName of testing dataset.  If no testing data available or desired, put 'None'.  
+outFileName=Local_Output\ExampleRun							# Path/NewName for new algorithm output files. Note: Do not give a file extension, this is done automatically.
+learningIterations=128							# Specify complete algorithm evaluation checkpoints and maximum number of learning iterations (e.g. 1000.2000.5000 = A maximum of 5000 learning iterations with evaluations at 1000, 2000, and 5000 iterations)
+N=1000											# Maximum size of the rule population (a.k.a. Micro-classifier population size, where N is the sum of the classifier numerosities in the population)
+p_spec=0.5										# The probability of specifying an attribute when covering. (1-p_spec = the probability of adding '#' in ternary rule representations). Greater numbers of attributes in a dataset will require lower values of p_spec.
+
+######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+###### Logistical Run Parameters
+######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+randomSeed=False								# Set a constant random seed value to some integer (in order to obtain reproducible results). Put 'False' if none (for pseudo-random algorithm runs).
+labelInstanceID=InstanceID						# Label for the data column header containing instance ID's.  If included label not found, algorithm assumes that no instance ID's were included.
+labelPhenotype=Class							# Label for the data column header containing the phenotype label. (Typically 'Class' for case/control datasets)
+labelMissingData=NA								# Label used for any missing data in the data set.
+discreteAttributeLimit=10						# The maximum number of attribute states allowed before an attribute or phenotype is considered to be continuous (Set this value >= the number of states for any discrete attribute or phenotype in their dataset).
+trackingFrequency=0								# Specifies the number of iterations before each estimated learning progress report by the algorithm ('0' = report progress every epoch, i.e. every pass through all instances in the training data).
+
+######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+###### Supervised Learning Parameters - Generally just use default values.
+######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+nu=5											# (v) Power parameter used to determine the importance of high accuracy when calculating fitness. (typically set to 5, recommended setting of 1 in noisy data)
+init_fit=0.01									# The initial fitness for a new classifier. (typically very small, approaching but not equal to zero)
+
+######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+###### PopulationReboot - An option to begin e-LCS learning from an existing, saved rule population. Note that the training data is re-shuffled during a reboot.
+######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+doPopulationReboot=0							# Start eLCS from an existing rule population? (1 is True, 0 is False).
+popRebootPath=ExampleRun_eLCS_5000				# Path/FileName of previously evolved rule population output file. Include file/pathname up to until 'RulePop.txt', as this is automatically included.
