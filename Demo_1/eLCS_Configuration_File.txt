@@ -3,12 +3,12 @@
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ###### Major Run Parameters - Essential to be set correctly for a successful run of the algorithm
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-datasetDirectory=Demo_Datasets
-trainFile=6Multiplexer_Data_Complete.txt
-testFile=None									# Path/FileName of testing dataset.  If no testing data available or desired, put 'None'.
-outputDirectory=Local_Output
-outputFile=ExampleRun
-learningIterations=64						# Specify complete algorithm evaluation checkpoints and maximum number of learning iterations (e.g. 1000.2000.5000 = A maximum of 5000 learning iterations with evaluations at 1000, 2000, and 5000 iterations)
+datasetDirectory=Demo_Datasets					# Directory/Path of training and testing datasets (assumes they are in the same directory)
+trainFile=6Multiplexer_Data_Complete.txt		# FileName of training dataset
+testFile=None									# FileName of testing dataset.  If no testing data available or desired, put 'None'.
+outputDirectory=Local_Output					# Output file directory
+outputFile=ExampleRun							# FileName of output files.
+learningIterations=64							# Specify complete algorithm evaluation checkpoints and maximum number of learning iterations (e.g. 1000.2000.5000 = A maximum of 5000 learning iterations with evaluations at 1000, 2000, and 5000 iterations)
 N=1000											# Maximum size of the rule population (a.k.a. Micro-classifier population size, where N is the sum of the classifier numerosities in the population)
 p_spec=0.5										# The probability of specifying an attribute when covering. (1-p_spec = the probability of adding '#' in ternary rule representations). Greater numbers of attributes in a dataset will require lower values of p_spec.
 

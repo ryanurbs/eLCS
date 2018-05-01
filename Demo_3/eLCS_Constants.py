@@ -21,16 +21,20 @@ You should have received a copy of the GNU General Public License along with thi
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 """
+import os
 
 class Constants:
     def setConstants(self,par):
         """ Takes the parameters parsed as a dictionary from eLCS_ConfigParser and saves them as global constants. """
         
         # Major Run Parameters -----------------------------------------------------------------------------------------
-        self.trainFile = par['trainFile']                                       #Saved as text
-        self.testFile = par['testFile']                                         #Saved as text
-        self.originalOutFileName = str(par['outFileName'])                      #Saved as text
-        self.outFileName = str(par['outFileName'])+'_eLCS'                  #Saved as text
+        self.trainFile = os.path.join(par['datasetDirectory'], par['trainFile'])                    #Saved as text
+        if par['testFile'] == 'None':
+            self.testFile = 'None'                                                                  #Saved as text
+        else:
+            self.testFile = os.path.join(par['datasetDirectory'], par['testFile'])                  #Saved as text
+        self.originalOutFileName = os.path.join(par['outputDirectory'], str(par['outputFile']))     #Saved as text
+        self.outFileName = os.path.join(par['outputDirectory'], str(par['outputFile'])+'_eLCS')     #Saved as text
         self.learningIterations = par['learningIterations']                     #Saved as text
         self.N = int(par['N'])                                                  #Saved as integer
         self.p_spec = float(par['p_spec'])                                      #Saved as float

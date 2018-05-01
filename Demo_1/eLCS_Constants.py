@@ -30,7 +30,10 @@ class Constants:
 
         # Major Run Parameters -----------------------------------------------------------------------------------------
         self.trainFile = os.path.join(par['datasetDirectory'], par['trainFile'])                    #Saved as text
-        self.testFile = par['testFile']                                                             #Saved as text
+        if par['testFile'] == 'None':
+            self.testFile = 'None'                                                                  #Saved as text
+        else:
+            self.testFile = os.path.join(par['datasetDirectory'], par['testFile'])                  #Saved as text
         self.originalOutFileName = os.path.join(par['outputDirectory'], str(par['outputFile']))     #Saved as text
         self.outFileName = os.path.join(par['outputDirectory'], str(par['outputFile'])+'_eLCS')     #Saved as text
         self.learningIterations = par['learningIterations']                                         #Saved as text
